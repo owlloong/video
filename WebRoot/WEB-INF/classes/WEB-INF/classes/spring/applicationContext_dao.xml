@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+				">
+
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!--数据源的类可以有很多种， -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<!-- 基本的连接信息 -->
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 一些管理的配置 -->
+		<property name="initialPoolSize" value="10"></property>
+		<property name="minPoolSize" value="30"></property>
+		<property name="maxPoolSize" value="100"></property>
+		<property name="acquireIncrement" value="30"></property>
+		<property name="maxIdleTime" value="30"></property>
+	</bean>
+	<!-- 配置sqlsessionFactory 工厂 -->
+	<bean id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+	</bean>
+	
+	
+	<!-- 声明userMapper，比较麻烦，需要一个一个写
+		MapperFactoryBean:userMapper类的生成类
+	 -->
+	<!-- <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		需要生成的mapper接口
+		<property name="mapperInterface" value="com.mapper.spring.UserMapper"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean> -->
+	
+	<!-- 可以使用spring的扫描创建bean
+		MapperScannerConfigurer:扫描的类名
+	 -->
+	 
+	 <!-- 这里不需要定义id，mybatis会自动根据接口名来生成bean名，是接口名的首字母小写 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描的包名，如果多个包名，使用逗号分隔 -->
+		<property name="basePackage" value="com.mapper"></property>
+		<!-- name名字不能使用sqlSessionFactory，要不然会造成不会加载配置文件db.properties -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		
+	</bean>
+
+</beans>

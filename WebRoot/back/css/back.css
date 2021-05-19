@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.top {
+  height: 50px;
+  background-color: #3C3C3C;
+  color: white;
+}
+#navFont {
+  margin-left: 20px;
+  line-height: 50px;
+  font-size: 18px;
+}
+#navUser {
+  float: right;
+  line-height: 50px;
+  margin-right: 20px;
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.top a{
+	color:white;
+}
+#icon-setting {
+  float: right;
+  position: absolute;
+  margin-top: 6px;
+  right: 90px;
+}
+.top ul{
+	float:right;
+	position:absolute;
+	right:50px;
+}
+.top ul li{
+	line-height:26px;
+}
+
+.left {
+  float: left;
+  width: 200px;
+  background-color: #3C3C3C;
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+}
+ul {
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+}
+ul li {
+  margin-left: 40px;
+  margin-right: 40px;
+  float: left;
+  text-align: center;
+}
+div.left ul li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  color: #d0d0d0;
+  float: none;
+  text-align: left;
+}
+.left .active {
+  background-color: #FF2D2D;
+  color: white;
+}
+.left a{
+	color:white;
+	text-decoration:none;
+}
+.left ul li:hover{
+	background-color: #FF8000;
+	transition:background-color 0.3s linear;
+}
+
+
+.center {
+  float: left;
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+  left: 200px;
+  right: 0px;
+}
+.searchBar{
+	background-color: #c0c0c0;
+}
+.searchBar input{
+	height:32px;
+	margin:8px;
+}
+.searchBar button{
+	height:32px;
+	background-color: #3C3C3C;
+	border-color: #3C3C3C;
+	color:white;
+}
+.searchBar hr{
+	margin:8px,8px,8px,0px;
+	width:100%;
+}
+
+.subCategory{
+	margin: 15px;
+}
+
+.btn-accept{
+	color:green;
+	text-decoration: none;
+}
+.btn-deny{
+	color:red;
+	text-decoration: none;
+}

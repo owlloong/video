@@ -1,0 +1,76 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+
+
+
+	<!-- <bean id="ItemsHandlerAnnotation" class="com.handler.ItemsHandlerAnnotation"></bean> -->
+	<!-- 可以扫描很多层组件，service、controller、commonment。。。 这里扫描controller的包 -->
+	<context:component-scan base-package="com.handler"></context:component-scan>
+	<!-- 使用 mvc:annotation-driven可以代替上面的注解适配器和注解映射器 并且这个驱动里面加载和绑定很多方法和参数，用起来方便 
+		比如json的转换器默认加载 实际开发用这种 validator="validator" 将自定义校验规则注入适配器 -->
+
+	<mvc:annotation-driven conversion-service="conversionService">
+
+	</mvc:annotation-driven>
+
+	<!-- 自定义参数绑定 -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- 转化器 -->
+		<property name="converters">
+			<list>
+				<!-- 日期类型的转化 -->
+				<bean class="com.handler.converter.CustomDateConverter"></bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- 静态资源解析包括 ：js、css、img、..-->
+	 <mvc:resources location="/js/" mapping="/js/**"/>
+	 <mvc:resources location="/img/" mapping="/images/**"/>
+	 <mvc:resources location="/img/" mapping="/img/**"/>
+	 <mvc:resources location="/css/" mapping="/css/**"/>
+	 <mvc:resources location="/META-INF/" mapping="/META-INF/**"/>
+
+	<!-- 配置Handler 3 基于注解的handler， 实际开发建议使用组件扫描 -->
+	
+
+	<!-- 配置视图解析器 :InternalResourceViewResolver, 解析jsp视图，默认使用jstl包 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 视图解析器的类，可以不配置 -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<!-- 视图解析器 视图的前缀 -->
+		<property name="prefix" value="/" />
+		<!-- 视图解析器的后缀 -->
+		<property name="suffix" value=".jsp" />
+
+	</bean>
+
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸为5MB -->
+		<property name="maxUploadSize">
+			<value>524288000</value>
+		</property>
+	</bean>
+	
+
+	
+</beans>

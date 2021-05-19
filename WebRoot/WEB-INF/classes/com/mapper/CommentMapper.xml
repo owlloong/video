@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.po.Comment" >
+    <id column="commentId" property="commentId" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentId" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="VARCHAR" />
+    <result column="commentTime" property="commentTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.po.Comment" extends="BaseResultMap" >
+    <result column="commContext" property="commContext" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    commentId, parentId, userId, commentTime
+  </sql>
+  <sql id="Blob_Column_List" >
+    commContext
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.po.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.po.CommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from comment
+    where commentId = #{commentId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from comment
+    where commentId = #{commentId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.po.CommentExample" >
+    delete from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.po.Comment" >
+    insert into comment (commentId, parentId, userId, 
+      commentTime, commContext)
+    values (#{commentId,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{commentTime,jdbcType=TIMESTAMP}, #{commContext,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.po.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        commentId,
+      </if>
+      <if test="parentId != null" >
+        parentId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="commentTime != null" >
+        commentTime,
+      </if>
+      <if test="commContext != null" >
+        commContext,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commContext != null" >
+        #{commContext,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.po.CommentExample" resultType="java.lang.Integer" >
+    select count(*) from comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update comment
+    <set >
+      <if test="record.commentId != null" >
+        commentId = #{record.commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null" >
+        parentId = #{record.parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        userId = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commentTime != null" >
+        commentTime = #{record.commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commContext != null" >
+        commContext = #{record.commContext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update comment
+    set commentId = #{record.commentId,jdbcType=VARCHAR},
+      parentId = #{record.parentId,jdbcType=VARCHAR},
+      userId = #{record.userId,jdbcType=VARCHAR},
+      commentTime = #{record.commentTime,jdbcType=TIMESTAMP},
+      commContext = #{record.commContext,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update comment
+    set commentId = #{record.commentId,jdbcType=VARCHAR},
+      parentId = #{record.parentId,jdbcType=VARCHAR},
+      userId = #{record.userId,jdbcType=VARCHAR},
+      commentTime = #{record.commentTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.po.Comment" >
+    update comment
+    <set >
+      <if test="parentId != null" >
+        parentId = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        commentTime = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commContext != null" >
+        commContext = #{commContext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where commentId = #{commentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.po.Comment" >
+    update comment
+    set parentId = #{parentId,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=VARCHAR},
+      commentTime = #{commentTime,jdbcType=TIMESTAMP},
+      commContext = #{commContext,jdbcType=LONGVARCHAR}
+    where commentId = #{commentId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.po.Comment" >
+    update comment
+    set parentId = #{parentId,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=VARCHAR},
+      commentTime = #{commentTime,jdbcType=TIMESTAMP}
+    where commentId = #{commentId,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectCommentByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT DISTINCT * FROM `comment` WHERE userId in(
+	SELECT DISTINCT userId FROM `comment` where parentId in(
+	SELECT parentId FROM `comment` where userId=#{userId})) 
+	and parentId not in(SELECT parentId FROM `comment` where userId=#{userId})
+  </select>
+</mapper>

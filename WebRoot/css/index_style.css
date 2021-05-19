@@ -1,0 +1,553 @@
+
+body {margin:0 auto;background:none; background-color: #1c1c1c;}  
+ul li{margin:0 auto;list-style-type: none;}
+/*=============绗竴椤�=============*/	
+/*整体框架*/
+ .nav{
+		margin:0 auto;
+		width:100%;
+		min-height: 630px;
+		height:auto;
+		position: relative;
+		z-index:30;
+		top:0px;
+		color:#ffffff;
+	}
+	/*主框架*/
+.wapper{
+		margin:0 auto;
+		width:80%;
+		position: relative;
+		color:#ffffff;
+		margin-top:40px;
+		min-height:510px;
+		height:auto;
+	} 
+	/*ul列表*/
+.wapper .menu2{
+	width:100%;
+	margin-top:20px;
+	min-height:500px;
+	height:auto;
+	position: relative;
+	margin-bottom: 20px;
+}
+.menu2 > li{
+	float: left;
+}
+/*列表左列*/
+.menu2_left{
+	width: 20%;
+	position: relative;
+}
+
+.left{
+	width:215px;
+	height:500px;
+	/* margin-right:10%; */ 
+	margin-left:4%; /* 
+	border:1px solid #CDCDCD;*/
+	background-color: rgba(225,225,225,0.2); 
+	box-shadow: 0 0 5px #0099E1;
+	margin-top: 10px;
+	position: relative;
+}
+.left ul{
+	
+}
+.left ul li{
+	float: inherit;
+	margin-left: 40px;
+}
+.left img{
+	margin-top:10px;
+	width: 130px;
+	height:135px;
+	border-radius:120px;
+	margin-bottom: 5px;
+}
+/*列表右列*/
+.menu2_right{
+	width: 70%;
+	min-height:500px;
+	margin-left:8%;
+	position: relative;
+	margin-top: 10px;
+	height: auto;
+	box-shadow: 0 0 5px #0099E1;
+	background-color: rgba(225, 225, 225, 0.2);
+}
+.right{
+	width:100%;
+	height: auto;
+	min-height:500px;
+	position: relative;
+}
+/*个人基本信息*/
+.r_user{
+	width:94%;
+	margin-left: 3%;
+	height: 500px;
+	overflow: hidden;
+}
+.r_boder>li{
+	padding-top: 10px;
+	float: left;
+}
+.right .photo img{
+	width: 120px;
+	height:120px;
+	border-radius:120px;
+}
+.r_people {
+	width:98%;
+	margin-left:2%;
+	margin-top:5px;
+}
+.r_people .name{
+	font-size: 24px;
+}
+.r_people .uid{
+	font-size: 12px;
+}
+.dd button{
+	top:5px;
+	margin-left: 10px;
+	color: #fff;
+	background: none;
+	border: none;
+}
+.dd button:HOVER{
+	color:#0099E1;
+}
+.r_shuo div{
+	width: 580px;
+	height: 80px;
+	margin-top: 15px;	
+}
+.r_shuo .infor_info{
+	display: none;
+}
+.dd{
+	margin-top: 5px;
+}
+.r_shuo .infor_info input{
+	width: 96%;
+	height: 36px;
+	background: none;
+	color: #fff;
+	font-size: 16px;
+}
+.r_shuo div button{
+	float: right;
+	margin-right: 10px;
+	font-size:16px;
+	font-style: italic;
+}
+.infor_jname input{
+	height:100px;
+	width:120px;
+	background: none;
+	font-size: 24px;
+	color: #fff;
+	border: 1px solid #FFF;
+	word-break:break-all;
+}
+.infor .p{
+	padding-left: 20px;
+	font-size:20px;
+	margin-top: 30px;
+}
+
+.infor .p input{
+	background:none;
+	font-size:18px;
+	color:#fff;
+	border:1px solid #0099E1;
+		
+}
+#sex21 input{
+	width: 220px;
+	height: 20px;
+}
+
+#birth21 input{
+	width: 220px;
+	height: 20px;
+	color:#fff;
+	background-color: rgba(0,0,0,0.9);
+	}
+
+.infor  button{
+	float: left;
+	margin-top:40px;
+	margin-left: 20px;
+	font-size: 20px;
+	font-style: italic;
+}
+
+.infor_jname{
+	display: none;
+}
+#update_form{
+	display: none;
+}
+.nav a.gv { 
+	text-decoration:none; 
+	background:url(img/nav_gv.png) repeat 0px 0px; 
+	width: 130px; 
+	height: 43px; 
+	display: block; 
+	text-align:center;		/*姘村钩灞呬腑*/
+	line-height:43px;  /*涓婁笅灞呬腑*/
+	cursor:pointer;
+	float:left;/*宸︽诞鍔�*/
+	margin:8px 2px 8px 2px;
+	font:18px/43px 'microsoft yahei'; color:#ffffff;
+	}
+.nav a.gv span {
+	 display: none;	 	
+}
+.nav a.gv:hover { 
+	background: url(img/nav_gv.png) repeat 0px -43px; 
+	color:#0099E1;
+	-webkit-box-shadow: 0 0 6px #ffffff;
+	transition-duration: 0.5s;
+	}
+#show1{
+	display: block;
+}
+#show2{
+	display: none;
+}
+#show3{
+	display: none;
+	min-height:480px;
+	height:auto;
+	position: relative;
+}
+#show4{
+	display: none;
+}
+#show5{
+	display: none;
+}
+
+/*上传*/
+.upload{
+	height:auto;
+	position: relative;
+}
+hr{FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#0099E1,direction:145,strength:15)}
+.ss{
+	font-size:30px;
+	padding-left:10%;
+}
+.right .upload_infor .fen  img{
+	width: 100px;
+	height: 120px;
+}
+.up{
+	padding-top: 20px;
+}
+.upload_infor{
+	padding-top:20px;
+	width: 92%;
+	display:block;
+	margin-left:8%;
+	height:auto;
+	position: relative;
+}
+.up_xi{
+	width: 340px;
+	height: 150px;
+	float: left;
+}
+.up_xi li{
+	padding-left: 5px;
+}
+.menu_fen{
+
+}
+.menu_infor{
+	
+}
+.menu1>li{
+	float: left;
+}
+.up_sname{
+	font-size: 30px;
+}
+.up_uname{
+	font-size: 14px;
+	font-style: italic;
+}
+.up_jie{
+	width: 200px;;
+	height: 65px;
+}
+.up_jie apan{
+	font-size: 18px;
+}
+.time{
+	font-size: 12px;
+	font-style:italic;
+}
+
+/*上传按钮*/
+/* .file {
+	width: 110px;
+	height: 110px;
+    position: relative;
+    display: inline-block;    
+    background-image:url(img/upload.png); 
+    border-radius: 4px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: url(img/upload2.png);
+    border-color: #c0c0c0;
+    color: #004974;
+    text-decoration: none;
+} */
+.up_add{
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	
+}
+.up_add a{
+	width: 100px;
+	height: 120px;
+}
+.up_add a div{
+	/* background: url(img/upload.png); */
+	width: 100px;
+	height: 120px;
+	background-image: url(img/upload1.png);
+}
+.up_add a div:HOVER{
+	background: url(img/upload2.png);
+}
+/*弹出窗口*/
+ #popupcontent{ 
+   position: absolute; 
+      visibility: hidden; 
+      overflow: hidden; 
+      border:1px solid #CCC; 
+      background-color:rgba(28,28,28,0.96); 
+      box-shadow: 0 0 5px #0099E1; 
+      padding:5px; 
+      z-index: 999;
+      }
+      /*窗口标题*/
+      .p_title{
+      	margin:0 auto;
+      	background: rgba(225,225,225,0.1);
+      	width: 100%;
+      	text-align: center;
+      	height:25px;
+      	font-size: 18px;
+      	color: #fff;
+      	/* box-shadow: 0 0 9px #0099E1; */
+      }
+      /*表单*/
+      .p_infor{
+      color:#fff;
+      width:86%;
+      margin: 0 auto;
+      margin-top: 10px;
+      }
+      .p_button{
+	      margin:0 auto;
+	      width: 90%;
+	      height:25px;
+	      color:#fff;
+	      margin-bottom:0px;
+      }
+     /*上传封面*/
+      .p_file{
+      margin-top:20px;
+      	float: left;
+      	margin-right: 30px;
+      	font-size: 24px;
+      }
+      .p_file a div{
+      		margin: 30px  40px;
+      }
+ .file {	
+    width: 100px;
+    height: 120px;
+    position: relative;
+    display: inline-block;
+    background: url(img/upload1.png) no-repeat;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    color: #4e9dbb;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    text-decoration: none;
+}/*上传封面结束*/
+	/*表单内容样式*/
+      .p_infor input{
+	      	width: 180px;
+	      	height: 25px;
+	      	background: none;
+	      	border:2px solid rgba(0,125,225,0.8);
+    		border-radius: 4px;
+	      	color: #fff;
+      }
+      .p_infor_infor{
+      	overflow: hidden;
+      }
+      .p_infor_infor ul li{
+      	float: inherit;
+      	margin-top: 10px;
+      }
+      .p_infor_infor ul li select{
+      		width: 180px;
+      		height:25px;
+      		background: none;
+      		border: none;
+      		border:2px solid rgba(0,125,225,0.8);
+    		border-radius: 4px;
+    		color:#fff;
+      }
+      .p_infor_infor ul li select .option{
+      		background: none;
+      		background-color: #1c1c1c;
+      		border:none;
+      		border:2px solid rgba(0,125,225,0.8);
+    		border-radius: 4px;
+      }
+      
+      /*上传视频按钮样式*/
+      
+ .vodio_file {	
+    width: 180px;
+    height: 25px;
+    position: relative;
+    display: inline-block;
+    border:2px solid rgba(0,125,225,0.8);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    color: #4e9dbb;
+}
+.vodio_file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+      
+      /*表单提交按钮样式*/
+      .p_button{
+      	margin-top: 50px;
+      }
+      .p_button button{
+	      margin:0 auto;
+	      background: none;
+	      border: none;
+	      background-color: #4e9dbb;
+	      font-size: 18px;
+	      width: 60px;
+	      height: 25px;
+	      margin-left: 24%;
+	      border-radius:5px; 
+      }
+      /*取消窗口按钮样式*/
+ /*弹出窗口结束*/     
+/*下载*/
+.down{
+	padding-top: 20px;
+}
+/*关注*/
+.frien{
+	padding-top: 20px;
+}
+.guan_infor{
+	margin:0 auto;
+	height: 105px;
+	padding-left:1%;
+	width:48%;
+	float: left;
+	padding-top: 10px;
+}
+.guan_img img{
+	width: 100px;
+	height: 100px;
+	border-radius:100px;
+	float: left;
+	margin-right: 10px;
+}
+
+.zhu , .guan{
+	margin: 0 auto;
+}
+.guan{
+	margin-top: 20px;
+	width:80%;
+	height:300px;
+}
+.guan_uname{
+	font-size: 20px;
+}
+.guan_xi{
+	margin-top: 8px;
+}
+.guan_xi li{
+	float:inherit;
+	margin-top: 5px;
+}
+.button button{
+	background: none;
+	border: none;
+	font-style: italic;
+	color:#fff;
+	float: left;
+}
+.button button:HOVER {
+	color:#0099E1;
+}
+
+#foot{
+	float:left;
+	margin-top:100px;
+	margin: 0 auto;
+	width: 100%;
+	min-height: 30px;
+	height: auto;
+	position: relative;
+}
+#header{
+	margin: 0 auto;
+	width: 100%;
+	min-height: 70px;
+	height: auto;
+	position: relative;
+}
+
+	
